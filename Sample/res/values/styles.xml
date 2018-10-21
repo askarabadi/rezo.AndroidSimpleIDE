@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Light" />
+    <style name="leftTextStyle" parent="android:Theme.Light" />
+    <style name="rightTextStyle" parent="android:Theme.Light" />
+
+</resources>

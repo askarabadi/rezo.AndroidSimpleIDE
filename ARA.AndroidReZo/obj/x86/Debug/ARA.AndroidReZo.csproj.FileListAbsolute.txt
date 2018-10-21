@@ -9,3 +9,14 @@ D:\Projects\ARA.AndroidReZo\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.FrmOpt
 D:\Projects\ARA.AndroidReZo\ARA.AndroidReZo\bin\Debug\Newtonsoft.Json.dll
 D:\Projects\ARA.AndroidReZo\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.FrmLayout.resources
 D:\Projects\ARA.AndroidReZo\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.csprojResolveAssemblyReference.cache
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.exe
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.pdb
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\bin\Debug\ARA.AndroidReZo.exe
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\bin\Debug\ARA.AndroidReZo.pdb
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.csprojResolveAssemblyReference.cache
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.FrmLayout.resources
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.FrmMain.resources
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.FrmOptions.resources
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.Properties.Resources.resources
+D:\Projects\rezo.AndroidSimpleIDE\ARA.AndroidReZo\obj\x86\Debug\ARA.AndroidReZo.csproj.GenerateResource.Cache

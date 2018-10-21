@@ -1,0 +1,12 @@
+{
+    "PACKAGE" : "com\\example\\tutorialspoint7\\myapplication",
+    "LIBS" : [],
+    "BUILD_TOOLS" : "d:\\Android\\Android-SDK\\build-tools\\28.0.0",
+    "PLATFORM" : "d:\\Android\\Android-SDK\\platforms\\android-28",
+    "JAVAC" : "C:\\Java\\jdk1.8.0_102\\bin\\javac.exe",
+    "KEYTOOL" : "C:\\Java\\jdk1.8.0_102\\bin\\keytool.exe",
+    "KEYTOOL_STOREPASSWD" : "android",
+    "KEYTOOL_PASSWD" : "android",
+    "KEYTOOL_DNAME" : "CN=reza, OU=askarabadi, O=neyshabour, ST=kh-razavi, C=iran",
+    "KEYTOOL_ALIAS" : "androidkey"	
+}
