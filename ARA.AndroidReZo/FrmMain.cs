@@ -61,6 +61,7 @@ namespace ARA.AndroidReZo
             groupBox1.Controls.Add(tb);
             tb.Visible = false;
             tb.Multiline = true;
+            tb.AcceptsTab = true;
             tb.ScrollBars = ScrollBars.Both;
             tb.Dock = DockStyle.Fill;
             tb.Tag = tn;
@@ -117,9 +118,10 @@ namespace ARA.AndroidReZo
             System.IO.Directory.CreateDirectory(myBuild + "apk");
 
             foreach (string l in LIBS)
-            {
-                Run("cmd.exe", @"/C xcopy """ + l + @""" " + myBuild + @"obj /Q");
-            }
+                if (l != "")
+                {
+                    Run("cmd.exe", @"/C xcopy """ + l + @""" " + myBuild + @"obj /Q");
+                }
             echo("build directory recreated ...");
             Run(BUILD_TOOLS + @"\aapt.exe", @" package -f -m -J """ + myBuild + @"gen"" -S """ +
                 txtPath.Text + @"res"" -M """ + txtPath.Text + @"AndroidManifest.xml"" -I """ +
@@ -303,15 +305,37 @@ namespace ARA.AndroidReZo
 
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            btnDeleteFile.Enabled = (treeView1.SelectedNode.Tag != null);
+            btnDeleteFile.Enabled = btnChangeFileName.Enabled = (treeView1.SelectedNode.Tag != null
+                && treeView1.SelectedNode.Text.Contains(".java"));
         }
 
         private void btnAddJava_Click(object sender, EventArgs e)
         {
-            var a = InputBox.Show("نام فایل");
+            var a = InputBox.Show("File Name", "Add java file");
             if (a.ReturnCode == System.Windows.Forms.DialogResult.OK)
             {
                 System.IO.File.Create(System.IO.Path.Combine(txtPath.Text, "src\\" + a.Text + ".java"));
+                btnRefresh_Click(sender, e);
+            }
+        }
+
+        private void btnChangeFileName_Click(object sender, EventArgs e)
+        {
+            var a = InputBox.Show("File Name", "Rename", treeView1.SelectedNode.Text);
+            if (a.ReturnCode == System.Windows.Forms.DialogResult.OK)
+            {
+                System.IO.File.Move(System.IO.Path.Combine(txtPath.Text, "src\\" + treeView1.SelectedNode.Text),
+                    System.IO.Path.Combine(txtPath.Text, "src\\" + a.Text));
+                btnRefresh_Click(sender, e);
+            }
+        }
+
+        private void btnDeleteFile_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure to delete file?", "delete",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                System.IO.File.Delete(System.IO.Path.Combine(txtPath.Text, "src\\" + treeView1.SelectedNode.Text));
                 btnRefresh_Click(sender, e);
             }
         }

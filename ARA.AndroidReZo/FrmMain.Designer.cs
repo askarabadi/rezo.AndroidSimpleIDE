@@ -40,6 +40,11 @@
             this.btnCompile = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnAddJava = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddLayout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDeleteFile = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -52,15 +57,11 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnSaveAll = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAddJava = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDeleteFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAddLayout = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChangeFileName = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -117,6 +118,44 @@
             this.treeView1.Size = new System.Drawing.Size(224, 299);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddJava,
+            this.btnAddLayout,
+            this.btnChangeFileName,
+            this.toolStripSeparator1,
+            this.btnDeleteFile});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 120);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // btnAddJava
+            // 
+            this.btnAddJava.Name = "btnAddJava";
+            this.btnAddJava.Size = new System.Drawing.Size(161, 22);
+            this.btnAddJava.Text = "فایل جدید جاوا";
+            this.btnAddJava.Click += new System.EventHandler(this.btnAddJava_Click);
+            // 
+            // btnAddLayout
+            // 
+            this.btnAddLayout.Name = "btnAddLayout";
+            this.btnAddLayout.Size = new System.Drawing.Size(161, 22);
+            this.btnAddLayout.Text = "فایل جدید لی اوت";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
+            // 
+            // btnDeleteFile
+            // 
+            this.btnDeleteFile.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteFile.Image")));
+            this.btnDeleteFile.Name = "btnDeleteFile";
+            this.btnDeleteFile.Size = new System.Drawing.Size(161, 22);
+            this.btnDeleteFile.Text = "حذف فایل انتخابی";
+            this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
             // 
             // btnRefresh
             // 
@@ -243,41 +282,12 @@
             this.btnSaveAll.UseVisualStyleBackColor = true;
             this.btnSaveAll.Click += new System.EventHandler(this.btnSaveAll_Click);
             // 
-            // contextMenuStrip1
+            // btnChangeFileName
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddJava,
-            this.btnAddLayout,
-            this.toolStripSeparator1,
-            this.btnDeleteFile});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 98);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // btnAddJava
-            // 
-            this.btnAddJava.Name = "btnAddJava";
-            this.btnAddJava.Size = new System.Drawing.Size(161, 22);
-            this.btnAddJava.Text = "فایل جدید جاوا";
-            this.btnAddJava.Click += new System.EventHandler(this.btnAddJava_Click);
-            // 
-            // btnDeleteFile
-            // 
-            this.btnDeleteFile.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteFile.Image")));
-            this.btnDeleteFile.Name = "btnDeleteFile";
-            this.btnDeleteFile.Size = new System.Drawing.Size(161, 22);
-            this.btnDeleteFile.Text = "حذف فایل انتخابی";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(158, 6);
-            // 
-            // btnAddLayout
-            // 
-            this.btnAddLayout.Name = "btnAddLayout";
-            this.btnAddLayout.Size = new System.Drawing.Size(161, 22);
-            this.btnAddLayout.Text = "فایل جدید لی اوت";
+            this.btnChangeFileName.Name = "btnChangeFileName";
+            this.btnChangeFileName.Size = new System.Drawing.Size(161, 22);
+            this.btnChangeFileName.Text = "تغییر نام";
+            this.btnChangeFileName.Click += new System.EventHandler(this.btnChangeFileName_Click);
             // 
             // FrmMain
             // 
@@ -291,12 +301,12 @@
             this.Name = "FrmMain";
             this.Text = "Android Simple IDE";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyDown);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -324,6 +334,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnAddLayout;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteFile;
+        private System.Windows.Forms.ToolStripMenuItem btnChangeFileName;
     }
 }
 
