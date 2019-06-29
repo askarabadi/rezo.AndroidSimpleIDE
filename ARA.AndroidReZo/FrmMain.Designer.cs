@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("src");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("java");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("layout");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("values");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("res", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("menu");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("drawable");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("res", new System.Windows.Forms.TreeNode[] {
             treeNode2,
-            treeNode3});
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCompile = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
@@ -43,10 +47,14 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAddJava = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddLayout = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnChangeFileName = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnDeleteFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnBuild = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRun1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRun = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnShowLayout = new System.Windows.Forms.Button();
             this.btnMakeKey = new System.Windows.Forms.Button();
@@ -57,7 +65,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnSaveAll = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnChangeFileName = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -67,21 +75,20 @@
             // groupBox1
             // 
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(245, 0);
+            this.groupBox1.Location = new System.Drawing.Point(248, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(492, 540);
+            this.groupBox1.Size = new System.Drawing.Size(489, 540);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnCompile
             // 
-            this.btnCompile.Image = ((System.Drawing.Image)(resources.GetObject("btnCompile.Image")));
             this.btnCompile.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCompile.Location = new System.Drawing.Point(12, 346);
             this.btnCompile.Name = "btnCompile";
-            this.btnCompile.Size = new System.Drawing.Size(75, 23);
+            this.btnCompile.Size = new System.Drawing.Size(47, 23);
             this.btnCompile.TabIndex = 1;
-            this.btnCompile.Text = "Compile";
+            this.btnCompile.Text = "Build";
             this.toolTip1.SetToolTip(this.btnCompile, "کامپایل و ساخت فایل نتیجه");
             this.btnCompile.UseVisualStyleBackColor = true;
             this.btnCompile.Click += new System.EventHandler(this.btnCompile_Click);
@@ -97,24 +104,30 @@
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(166, 21);
             this.txtPath.TabIndex = 3;
-            this.txtPath.Text = "D:\\Android\\Projects\\MyGheble\\";
+            this.txtPath.Text = "D:\\Android\\Projects\\MyToolbar";
             // 
             // treeView1
             // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeView1.Location = new System.Drawing.Point(12, 41);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "ndSrc";
-            treeNode1.Text = "src";
+            treeNode1.Text = "java";
             treeNode2.Name = "ndLayout";
             treeNode2.Text = "layout";
             treeNode3.Name = "ndValues";
             treeNode3.Text = "values";
-            treeNode4.Name = "ndRes";
-            treeNode4.Text = "res";
+            treeNode4.Name = "ndMenu";
+            treeNode4.Text = "menu";
+            treeNode5.Name = "ndDrawable";
+            treeNode5.Text = "drawable";
+            treeNode6.Name = "ndRes";
+            treeNode6.Text = "res";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode4});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(224, 299);
             this.treeView1.TabIndex = 4;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -126,9 +139,11 @@
             this.btnAddLayout,
             this.btnChangeFileName,
             this.toolStripSeparator1,
-            this.btnDeleteFile});
+            this.btnDeleteFile,
+            this.btnBuild,
+            this.btnRun1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(162, 142);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // btnAddJava
@@ -143,6 +158,14 @@
             this.btnAddLayout.Name = "btnAddLayout";
             this.btnAddLayout.Size = new System.Drawing.Size(161, 22);
             this.btnAddLayout.Text = "فایل جدید لی اوت";
+            this.btnAddLayout.Click += new System.EventHandler(this.btnAddLayout_Click);
+            // 
+            // btnChangeFileName
+            // 
+            this.btnChangeFileName.Name = "btnChangeFileName";
+            this.btnChangeFileName.Size = new System.Drawing.Size(161, 22);
+            this.btnChangeFileName.Text = "تغییر نام";
+            this.btnChangeFileName.Click += new System.EventHandler(this.btnChangeFileName_Click);
             // 
             // toolStripSeparator1
             // 
@@ -157,6 +180,22 @@
             this.btnDeleteFile.Text = "حذف فایل انتخابی";
             this.btnDeleteFile.Click += new System.EventHandler(this.btnDeleteFile_Click);
             // 
+            // btnBuild
+            // 
+            this.btnBuild.Name = "btnBuild";
+            this.btnBuild.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.btnBuild.Size = new System.Drawing.Size(161, 22);
+            this.btnBuild.Text = "کامپایل";
+            this.btnBuild.Click += new System.EventHandler(this.btnCompile_Click);
+            // 
+            // btnRun1
+            // 
+            this.btnRun1.Name = "btnRun1";
+            this.btnRun1.ShortcutKeys = System.Windows.Forms.Keys.F9;
+            this.btnRun1.Size = new System.Drawing.Size(161, 22);
+            this.btnRun1.Text = "اجرا";
+            this.btnRun1.Click += new System.EventHandler(this.btnRun_Click);
+            // 
             // btnRefresh
             // 
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
@@ -169,6 +208,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnRun);
             this.panel1.Controls.Add(this.btnLoad);
             this.panel1.Controls.Add(this.btnShowLayout);
             this.panel1.Controls.Add(this.btnMakeKey);
@@ -185,6 +225,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(245, 540);
             this.panel1.TabIndex = 6;
+            // 
+            // btnRun
+            // 
+            this.btnRun.Image = ((System.Drawing.Image)(resources.GetObject("btnRun.Image")));
+            this.btnRun.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRun.Location = new System.Drawing.Point(60, 346);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(26, 23);
+            this.btnRun.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnRun, "کامپایل و ساخت فایل نتیجه");
+            this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // btnLoad
             // 
@@ -231,7 +283,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(10, 375);
             this.tabControl1.Name = "tabControl1";
@@ -282,12 +336,13 @@
             this.btnSaveAll.UseVisualStyleBackColor = true;
             this.btnSaveAll.Click += new System.EventHandler(this.btnSaveAll_Click);
             // 
-            // btnChangeFileName
+            // splitter1
             // 
-            this.btnChangeFileName.Name = "btnChangeFileName";
-            this.btnChangeFileName.Size = new System.Drawing.Size(161, 22);
-            this.btnChangeFileName.Text = "تغییر نام";
-            this.btnChangeFileName.Click += new System.EventHandler(this.btnChangeFileName_Click);
+            this.splitter1.Location = new System.Drawing.Point(245, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 540);
+            this.splitter1.TabIndex = 7;
+            this.splitter1.TabStop = false;
             // 
             // FrmMain
             // 
@@ -295,6 +350,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 540);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.KeyPreview = true;
@@ -335,6 +391,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteFile;
         private System.Windows.Forms.ToolStripMenuItem btnChangeFileName;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.ToolStripMenuItem btnBuild;
+        private System.Windows.Forms.Button btnRun;
+        private System.Windows.Forms.ToolStripMenuItem btnRun1;
     }
 }
 
